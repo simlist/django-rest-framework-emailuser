@@ -6,7 +6,7 @@ setup = (
     author='MS List',
     author_email='simlist@gmail.com',
     packages=['emailuser',],
-    url='https://github.com/simlist/djangorestframework_emailuser',
+    url='https://github.com/simlist/django-rest-framework-emailuser',
     license='MIT',
     description=(
         'A user for djangorestframework that uses an email as the username.'
