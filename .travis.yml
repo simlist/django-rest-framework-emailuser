@@ -9,7 +9,7 @@ install:
 script:
   - python manage.py makemigrations
   - python manage.py migrate
-  - pytest --cov-report= --cov=djangorestframework_emailuser tests/
+  - pytest --cov-report= --cov=emailuser tests/
 
 after_success:
   coveralls
