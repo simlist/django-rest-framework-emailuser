@@ -3,7 +3,7 @@ from django.urls import reverse
 from rest_framework import status
 from rest_framework.test import APIClient, APITestCase
 
-from .models import EmailUser
+from emailuser.models import EmailUser
 
 EMAIL = 'me@example.com'
 NAME = 'Foo Bar'
