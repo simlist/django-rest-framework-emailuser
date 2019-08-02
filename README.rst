@@ -12,6 +12,13 @@ Overview
 
 A user for djangorestframework that uses an email as the username.
 
+Requirements
+------------
+
+- Python 3.5+
+- Django 2.2+
+- Djangorestframework 3.10+
+
 Installation
 ------------
 
