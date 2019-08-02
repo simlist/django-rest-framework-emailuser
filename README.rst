@@ -26,6 +26,16 @@ Install using ``pip``::
 
    $ pip install djangorestframework_emailuser
 
+Add ``'emailuser'`` to ``INSTALLED_APPS``:
+
+.. code-block:: Python
+
+  # myproject/settings.py
+  INSTALLED_APPS = [
+      ...
+      'emailuser',
+  ]
+
 Testing
 -------
 
