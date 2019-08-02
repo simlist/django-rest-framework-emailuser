@@ -15,18 +15,17 @@ A user for djangorestframework that uses an email as the username.
 Installation
 ------------
 
-Install using ``pip``.
+Install using ``pip``::
 
-.. code-block:: console
    $ pip install djangorestframework_emailuser
 
 Testing
 -------
 
-Install testing dependencies
-.. code-block:: console
+Install testing dependencies::
+
     $ pip install -r requirements.txt
 
-Run with pytest
-.. code-block:: console
+Run with pytest::
+
     $ pytest
