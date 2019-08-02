@@ -88,52 +88,19 @@ class UserTestCase(APITestCase):
         )
         self.assertEqual(token_response.status_code, status.HTTP_200_OK)
 
-""" pytestmark = pytest.mark.django_db 
-@pytest.fixture(scope='module')
-def api_client():
-    return APIClient()
 
-@pytest.fixture(scope='function')
-def user_init():
-    data = {
-        'name': 'sim list',
-        'email': 'me@example.com',
-        'password': 'mypassword'
-    }
-    client = APIClient()
-    request = client.post('/accounts/register/', data, format='json')
-    return data
-
-def test_create_user(api_client, user_init):
-    EMAIL = user_init['email']
-    NAME = user_init['name']
-    PASSWORD = user_init['password']
-
-    user = models.EmailUser.objects.get(email=EMAIL)
-    assert user.name == NAME
-    assert user.email == EMAIL
-    assert user.is_staff == False
-    assert user.is_superuser == False
-        
-def test_update_user(user_init, api_client):
-    user = models.EmailUser.objects.get(email=user_init['email'])
-    assert user.name == user_init['name']
-    put = api_client.put(
-        '/accounts/user/{}'.format(str(user.id)),
-        {'name': user.name + ' updated'},
-        format='json'
-        )
-    updated_user = models.EmailUser.objects.get(id=user.id)
-    assert updated_user.name == (user.name + ' updated')
-
-def test_retrieve_user(user_init, api_client):
-    user = models.EmailUser.objects.get(email=user_init['email'])
-    id = user.id
-    response = api_client.get(
-        '/accounts/users/{}'.format(str(id)),
-        content_type='application/json',
-        format='json'
-        ).json()
-    assert response['email'] == user.email
-    assert response['name'] == user.name
- """
+    def test_create_superuser(self):
+        data = {
+            'email': 'admin@example.com',
+            'name': 'Super User',
+            'password': 'MySuperPassword'
+        }
+        EmailUser.objects.create_superuser(**data)
+        superuser = EmailUser.objects.get(email=data['email'])
+        self.assertEqual(superuser.name, data['name'])
+        self.assertTrue(superuser.is_superuser)
+    
+    # def test_email_case_insensitive(self):
+    #     user = EmailUser.objects.get(email=EMAIL.capitalize())
+    #     self.assertEqual(user.name, NAME)
+            
