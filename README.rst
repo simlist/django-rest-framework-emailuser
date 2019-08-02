@@ -36,6 +36,14 @@ Add ``'emailuser'`` to ``INSTALLED_APPS``:
       'emailuser',
   ]
 
+Add the following line to ``settings.py`` to override django's default User
+model with the 'EmailUser' model:
+
+..code-block:: Python
+
+  # myproject/settings.py
+  AUTH_USER_MODEL = 'emailuser.EmailUser'
+
 Testing
 -------
 
