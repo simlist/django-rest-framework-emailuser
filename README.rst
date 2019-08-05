@@ -102,14 +102,14 @@ or
 ``PATCH`` the attribute you want to change.
 
 The EmailUser model has the following attributes:
-* email
+email
   The email address used as the login username.
-* name
+name
   A single field for the name of the user.
-* password
+password
   The password is hashed as set by the django settings.
-* is_superuser
+is_superuser
   A boolean attribute that can only be set programatically.
-* is_staff
+is_staff
   A boolean attribute that can be set by the admin site or
   programatically.
