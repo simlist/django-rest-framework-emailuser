@@ -12,6 +12,13 @@ Overview
 
 A user for djangorestframework that uses an email as the username.
 
+Features
+--------
+
+* Use email as username for loging in
+* One name field instead of first name and last name
+* Endpoints for creating an account, viewing, and updating accounts
+
 Requirements
 ------------
 
@@ -43,14 +50,3 @@ model with the 'EmailUser' model:
 
   # myproject/settings.py
   AUTH_USER_MODEL = 'emailuser.EmailUser'
-
-Testing
--------
-
-Install testing dependencies::
-
-    $ pip install -r requirements.txt
-
-Run with pytest::
-
-    $ pytest
