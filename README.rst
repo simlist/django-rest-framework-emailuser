@@ -72,6 +72,7 @@ To create a user programatically:
 .. code-block:: Python
 
   from django.contrib.auth import get_user_model
+
   normal_user = get_user_model().objects.create_user(
       email='me@example.com',
       name='My Name',
@@ -84,7 +85,22 @@ To create a user programatically:
       password='MySuperPassword'
   )
 
-To create a user 
+Using Endpoints:
+~~~~~~~~~~~~~~~~
+Assuming emailuser urls were set to ``/accounts/``:
+
+Creating user
+?????????????
+``POST`` ``email=email, name=name, password=password``
+to /accounts/users/register
+
+Updating User
+?????????????
+``PUT`` ``email=email, name=name, password=password``
+to /accounts/users/
+or
+``PATCH`` the attribute you want to change.
+
 The EmailUser model has the following attributes:
 * email
   The email address used as the login username.
