@@ -1,4 +1,8 @@
 from setuptools import setup
+from os import path
+
+with open(path.join(abspath(path.dirname(__file__)), 'README.rst')) as f:
+    long_description = f.read()
 
 setup = (
     name='djangorestframework_emailuser',
@@ -11,6 +15,8 @@ setup = (
     description=(
         'A user for djangorestframework that uses an email as the username.'
     )
+    long_description=long_description,
+    long_description_content_type='text/x-rst',
     install_requires=[],
     python_requires='>=3.5',
     classifiers=[
