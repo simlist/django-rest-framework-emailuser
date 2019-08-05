@@ -30,9 +30,11 @@ Requirements
 Installation and Configuration
 ------------------------------
 
-Install using ``pip``::
+Install using ``pip``:
 
-   $ pip install djangorestframework_emailuser
+.. code_block:: shell
+
+  $ pip install djangorestframework_emailuser
 
 Add ``'emailuser'`` to ``INSTALLED_APPS``:
 
@@ -49,7 +51,7 @@ model with the 'EmailUser' model:
 
 .. code-block:: Python
 
-  # myproject/settings.py
+  # mysite/settings.py
   AUTH_USER_MODEL = 'emailuser.EmailUser'
 
 Add urls to url conf:
@@ -66,6 +68,7 @@ Add urls to url conf:
 Using
 -----
 To create a user programatically:
+
 .. code-block:: Python
 
   from django.contrib.auth import get_user_model
