@@ -32,7 +32,7 @@ Installation and Configuration
 
 Install using ``pip``:
 
-.. code_block:: Sh
+.. code_block:: sh
 
   $ pip install djangorestframework_emailuser
 
