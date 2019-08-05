@@ -31,7 +31,7 @@ class UserTestCase(APITestCase):
             'email': 'example@gmail.com',
             'password': 'mypassword'
             }
-        response = self.client.post('/accounts/register/', data)
+        response = self.client.post(reverse('accounts:register'), data)
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         user = EmailUser.objects.get(email=data['email'])
         self.assertEqual(user.email, data['email'])
@@ -100,7 +100,12 @@ class UserTestCase(APITestCase):
         self.assertEqual(superuser.name, data['name'])
         self.assertTrue(superuser.is_superuser)
     
-    # def test_email_case_insensitive(self):
-    #     user = EmailUser.objects.get(email=EMAIL.capitalize())
-    #     self.assertEqual(user.name, NAME)
+    def test_email_lowercased(self):
+        EmailUser.objects.create_user(
+            name=NAME + '2',
+            email='UPPER@example.com',
+            password=PASSWORD
+        )
+        user = EmailUser.objects.get(email='upper@example.com')
+        self.assertEqual(user.name, NAME + '2')
             
