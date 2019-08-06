@@ -18,6 +18,9 @@ class EmailUserSerializer(serializers.ModelSerializer):
     
     def update(self, instance, validated_data):
         password = validated_data.pop('password', None)
+        email = validated_data.get('email', None)
+        if email is not None:
+            validated_data['email'] = email.lower()
         for (key, value) in validated_data.items():
             setattr(instance, key, value)
         if password is not None:

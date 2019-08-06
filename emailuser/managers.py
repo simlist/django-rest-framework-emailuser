@@ -8,7 +8,7 @@ class EmailUserManager(BaseUserManager):
             raise ValueError('Users must have a name.')
         if not email:
             raise ValueError('User must have an email.')
-        user = self.model(name=name, email=self.normalize_email(email))
+        user = self.model(name=name, email=self.normalize_email(email.lower()))
         user.set_password(password)
         user.save(using=self._db)
         return user
@@ -21,3 +21,7 @@ class EmailUserManager(BaseUserManager):
         user.is_staff = True
         user.save(using=self._db)
         return user
+    
+    def get_by_natural_key(self, username):
+        case_insensitive = '{}__iexact'.format(self.model.USERNAME_FIELD)
+        return self.get(**{case_insensitive: username})
