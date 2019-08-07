@@ -117,3 +117,5 @@ is_superuser
 is_staff
   A boolean attribute that can be set by the admin site or
   programatically.
+
+EmailUser also subclasses ``django.contrib.auth.models.PermissionsMixin``.
