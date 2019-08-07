@@ -102,6 +102,7 @@ or
 ``PATCH`` the attribute you want to change.
 
 The EmailUser model has the following attributes:
+
 email
   The email address used as the login username.
 
