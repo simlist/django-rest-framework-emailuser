@@ -101,27 +101,18 @@ to /accounts/users/
 or
 ``PATCH`` the attribute you want to change.
 
-.. py:class:: emailuser.EmailUser
+The EmailUser model has the following attributes:
+email
+  The email address used as the login username.
 
-  The EmailUser model has the following attributes:
-
-  .. py:attribute:: email
-
-    The email address used as the login username.
-
-  .. py:attribute:: name
-
+name
     A single field for the name of the user.
-    
-  .. py:attribute:: password
+password
+  The password is hashed as set by the django settings.
 
-    The password is hashed as set by the django settings.
-    
-  .. py:attribute:: is_superuser
+is_superuser
+  A boolean attribute that can only be set programatically.
 
-    A boolean attribute that can only be set programatically.
-
-  .. py:attribute:: is_staff
-
-    A boolean attribute that can be set by the admin site or
-    programatically.
+is_staff
+  A boolean attribute that can be set by the admin site or
+  programatically.
