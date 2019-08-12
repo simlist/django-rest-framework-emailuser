@@ -91,16 +91,19 @@ Assuming emailuser urls were set to ``/accounts/``:
 
 Creating user
 ?????????????
-``POST`` ``email=email, name=name, password=password``
+``POST`` ``{"email": email, "name": name, "password": password}``
 to /accounts/users/register
 
 Updating User
 ?????????????
-``PUT`` ``email=email, name=name, password=password``
-to /accounts/users/
+``PUT`` ``{"email": email, "name": name, "password": password}``
+to /accounts/users/<int:pk>/
 or
-``PATCH`` the attribute you want to change.
+``PATCH`` the attribute you want to change
+to /accounts/users/<int:pk>/
 
+Attributes
+~~~~~~~~~~
 The EmailUser model has the following attributes:
 
 email
