@@ -92,15 +92,15 @@ Assuming emailuser urls were set to ``/accounts/``:
 Creating user
 ?????????????
 ``POST`` ``{"email": email, "name": name, "password": password}``
-to /accounts/users/register
+to ``/accounts/users/register``
 
 Updating User
 ?????????????
 ``PUT`` ``{"email": email, "name": name, "password": password}``
-to /accounts/users/<int:pk>/
+to ``/accounts/users/<int:pk>/``
 or
 ``PATCH`` the attribute you want to change
-to /accounts/users/<int:pk>/
+to ``/accounts/users/<int:pk>/``
 
 Attributes
 ~~~~~~~~~~
