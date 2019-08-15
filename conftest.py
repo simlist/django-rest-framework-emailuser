@@ -9,7 +9,7 @@ def pytest_configure():
         USE_I18N=True,
         USE_L10N=True,
         STATIC_URL='/static/',
-        ROOT_URLCONF='emailuser.urls',
+        ROOT_URLCONF='tests.urls',
         TEMPLATE_LOADERS=(
             'django.template.loaders.filesystem.Loader',
             'django.template.loaders.app_directories.Loader',
@@ -23,6 +23,7 @@ def pytest_configure():
         ),
         INSTALLED_APPS=(
             'django.contrib.auth',
+            'django.contrib.admin',
             'django.contrib.contenttypes',
             'django.contrib.sessions',
             'django.contrib.sites',

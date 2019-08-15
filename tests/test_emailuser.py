@@ -31,7 +31,7 @@ class UserTestCase(APITestCase):
             'email': 'example@gmail.com',
             'password': 'mypassword'
             }
-        response = self.client.post(reverse('register'), data)
+        response = self.client.post(reverse('accounts:register'), data)
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         user = EmailUser.objects.get(email=data['email'])
         self.assertEqual(user.email, data['email'])
@@ -39,7 +39,9 @@ class UserTestCase(APITestCase):
 
     def test_retrieve_user(self):
         user = EmailUser.objects.get(email=EMAIL)
-        response = self.client.get('/users/{}'.format(user.id))
+        response = self.client.get(
+            reverse('accounts:retrieve_update',args=[user.id])
+            )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data, {
             'email': EMAIL,
@@ -55,7 +57,7 @@ class UserTestCase(APITestCase):
             'id': user.id
         }
         response = self.client.put(
-            reverse('update', args=[user.id,]),
+            reverse('accounts:retrieve_update', args=[user.id,]),
             {'email': data['email'], 'name': data['name'], 'password': 'slyeshiva'}, 
         )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
@@ -67,7 +69,7 @@ class UserTestCase(APITestCase):
         user = EmailUser.objects.get(email=EMAIL)
         self.client.force_authenticate(user=user)
         response = self.client.patch(
-            reverse('update', args=[user.id,]),
+            reverse('accounts:retrieve_update', args=[user.id,]),
             {'name': user.name + ' patch'}
         )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
@@ -78,7 +80,7 @@ class UserTestCase(APITestCase):
         user = EmailUser.objects.get(email=EMAIL)
         self.client.force_authenticate(user=user)
         response = self.client.patch(
-            reverse('update', args=[user.id,]),
+            reverse('accounts:retrieve_update', args=[user.id,]),
             {'password': 'mypatchedpassword'}
         )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
