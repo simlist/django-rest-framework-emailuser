@@ -4,7 +4,7 @@ from os import path
 with open(path.join(abspath(path.dirname(__file__)), 'README.rst')) as f:
     long_description = f.read()
 
-setup = (
+setup(
     name='djangorestframework_emailuser',
     version='0.1.0dev0',
     author='MS List',
