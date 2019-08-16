@@ -1,5 +1,6 @@
 from setuptools import setup
 from os import path
+from os.path import abspath
 
 with open(path.join(abspath(path.dirname(__file__)), 'README.rst')) as f:
     long_description = f.read()
@@ -14,7 +15,7 @@ setup(
     license='MIT',
     description=(
         'A user for djangorestframework that uses an email as the username.'
-    )
+    ),
     long_description=long_description,
     long_description_content_type='text/x-rst',
     install_requires=[],
