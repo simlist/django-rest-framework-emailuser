@@ -7,7 +7,7 @@ from . import views
 app_name = 'accounts'
 urlpatterns = [
     path('users/register/', views.RegistrationView.as_view(), name='register'),
-    path('users/<int:pk>', views.RetrieveUpdateUserView.as_view(), name='update'),
+    path('users/<int:pk>', views.RetrieveUpdateUserView.as_view(), name='retrieve_update'),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
