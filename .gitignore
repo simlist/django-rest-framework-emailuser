@@ -4,3 +4,6 @@ ENV/
 db.*
 .vscode/
 .coverage
+build/
+*.egg-info
+dist/
