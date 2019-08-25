@@ -121,6 +121,7 @@ To reference the user class directly:
   user_model = get_user_model()
 
 See `Django docs <https://docs.djangoproject.com/en/2.2/topics/auth/customizing/#referencing-the-user-model>`_  for more details.
+
 Attributes
 ~~~~~~~~~~
 The EmailUser model has the following attributes:
