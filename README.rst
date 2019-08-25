@@ -102,6 +102,24 @@ or
 ``PATCH`` the attribute you want to change
 to ``/accounts/users/<int:pk>/``
 
+Referencing User
+????????????????
+To reference user object in your code as a string (As for foreign keys):
+
+.. code-block:: Python
+
+  from django.conf import settings
+
+  user_model = settings.AUTH_USER_MODEL
+
+To reference the user class directly:
+
+.. code-block:: Python
+
+  from django.contrib.auth import get_user_model
+
+  user_model = get_user_model()
+
 Attributes
 ~~~~~~~~~~
 The EmailUser model has the following attributes:
