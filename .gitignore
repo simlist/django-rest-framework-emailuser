@@ -1,6 +1,5 @@
 ENV/
 **/__pycache__/**
-**/migrations/
 db.*
 .vscode/
 .coverage
