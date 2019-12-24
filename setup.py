@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 from os import path
 from os.path import abspath
 
@@ -10,7 +10,7 @@ setup(
     version='0.2.0dev0',
     author='MS List',
     author_email='simlist@gmail.com',
-    packages=['emailuser',],
+    packages=find_packages(),
     url='https://github.com/simlist/django-rest-framework-emailuser',
     license='MIT',
     description=(
