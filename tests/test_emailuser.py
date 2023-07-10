@@ -1,9 +1,12 @@
-import pytest
+from pytest import mark, raises
 from django.urls import reverse
 from rest_framework import status
 from rest_framework.test import APIClient, APITestCase
 
 from emailuser.models import EmailUser
+
+
+pytestmark = mark.django_db
 
 EMAIL = 'me@example.com'
 NAME = 'Foo Bar'
@@ -109,4 +112,34 @@ class UserTestCase(APITestCase):
         )
         user = EmailUser.objects.get(email='upper@example.com')
         self.assertEqual(user.name, NAME + '2')
-            
+
+
+    def test_str(self):
+        name = 'Me or You'
+        user = EmailUser.objects.create_user(
+            name=name,
+            email='you@example.com',
+            password='bad_password'
+        )
+        self.assertEqual(user.get_full_name(), name)
+        self.assertEqual(user.get_short_name(), name)
+
+def test_manager_errors():
+    with raises(ValueError):
+        EmailUser.objects.create_user(
+            name='',
+            email='me2@gmail.com',
+            password='badPassword'
+        )
+    with raises(ValueError):
+        EmailUser.objects.create_user(
+            name='A Name',
+            email='',
+            password='badPassword'
+        )
+    with raises(ValueError):
+        EmailUser.objects.create_superuser(
+            name='A Name',
+            email='anotheremail@example.com',
+            password=''
+        )
