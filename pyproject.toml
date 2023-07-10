@@ -51,5 +51,10 @@ exclude = ["tests", ".github", "requirements.txt", ".gitignore"]
 [tool.flit.module]
 name = "emailuser"
 
+[tool.pytest.ini_options]
+minversion = "6.0"
+python_files = ["tests.py", "test_*.py", "*_tests.py"]
+addopts = "--nomigrations"
+
 [tool.coverage.run]
 omit = ["*/migrations/*"]
