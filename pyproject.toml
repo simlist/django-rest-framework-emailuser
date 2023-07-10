@@ -29,7 +29,7 @@ classifiers=[
     "Programming Language :: Python :: 3.11",
 ]
 keywords = [
-    'django', 'djangorestframework', 'user', 'emailuser'
+    'django', 'djangorestframework', 'drf', 'user', 'emailuser'
 ]
 
 
