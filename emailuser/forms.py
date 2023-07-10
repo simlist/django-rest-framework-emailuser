@@ -1,3 +1,4 @@
+from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 
 from .models import EmailUser
@@ -5,11 +6,11 @@ from .models import EmailUser
 
 class EmailUserCreationForm(UserCreationForm):
     class Meta(UserCreationForm):
-        model = EmailUser
+        model = get_user_model()
         fields = ('email', 'name')
 
 
 class EmailUserChangeForm(UserChangeForm):
     class Meta:
-        model = EmailUser
+        model = get_user_model()
         fields = ('email', 'name')
