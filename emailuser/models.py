@@ -5,7 +5,7 @@ from django.contrib.auth.models import PermissionsMixin
 from .managers import EmailUserManager
 
 # Create your models here.
-class EmailUser(AbstractBaseUser, PermissionsMixin):
+class AbstractEmailUser(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(max_length=60, unique=True, db_index=True)
     name = models.CharField(max_length=40)
     is_active = models.BooleanField(default=True)
@@ -24,3 +24,10 @@ class EmailUser(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        abstract = True
+
+
+class EmailUser(AbstractEmailUser):
+    pass
