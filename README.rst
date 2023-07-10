@@ -1,8 +1,8 @@
 djangorestframework_emailuser
 =============================
 
-.. image:: https://travis-ci.org/simlist/django-rest-framework-emailuser.svg?branch=master
-    :target: https://travis-ci.org/simlist/django-rest-framework-emailuser
+.. image:: https://github.com/simlist/django-rest-framework-emailuser/actions/workflows/testing-and-coverage.yml/badge.svg?branch=master
+    :target: https://github.com/simlist/pyluach/actions/workflows/testing-and-coverage.yml
 
 .. image:: https://coveralls.io/repos/github/simlist/django-rest-framework-emailuser/badge.svg?branch=master
     :target: https://coveralls.io/github/simlist/django-rest-framework-emailuser?branch=master
