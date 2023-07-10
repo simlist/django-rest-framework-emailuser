@@ -50,3 +50,6 @@ exclude = ["tests", ".github", "requirements.txt", ".gitignore"]
 
 [tool.flit.module]
 name = "emailuser"
+
+[tool.coverage.run]
+omit = ["*/migrations/*"]
