@@ -4,7 +4,7 @@ from django.contrib.auth.models import PermissionsMixin
 
 from .managers import EmailUserManager
 
-# Create your models here.
+
 class AbstractEmailUser(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(max_length=60, unique=True, db_index=True)
     name = models.CharField(max_length=40)
@@ -18,7 +18,7 @@ class AbstractEmailUser(AbstractBaseUser, PermissionsMixin):
     REQUIRED_FIELDS = ['name',]
 
     def get_full_name(self):
-        return self.name
+        return str(self)
 
     get_short_name = get_full_name
 
