@@ -17,11 +17,18 @@ class EmailUserAdmin(UserAdmin):
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields': ('email', 'name', 'password1', 
-                       'password2', 'is_staff', 'is_active')
+            'fields': (
+                'email',
+                'name',
+                'password1',
+                'password2',
+                'is_staff',
+                'is_active'
+            )
         }),
     )
     search_fields = ('email', 'name')
     ordering = ('name',)
+
 
 admin.site.register(EmailUser, EmailUserAdmin)

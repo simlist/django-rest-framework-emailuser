@@ -1,5 +1,7 @@
 from rest_framework import serializers
+
 from .models import EmailUser
+
 
 class EmailUserSerializer(serializers.ModelSerializer):
     password = serializers.CharField(
@@ -12,10 +14,10 @@ class EmailUserSerializer(serializers.ModelSerializer):
         model = EmailUser
         fields = ['id', 'email', 'name', 'password']
         read_only_fields = ['id',]
-    
+
     def create(self, validated_data):
         return EmailUser.objects.create_user(**validated_data)
-    
+
     def update(self, instance, validated_data):
         password = validated_data.pop('password', None)
         email = validated_data.get('email', None)
