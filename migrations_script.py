@@ -3,7 +3,7 @@ from django.conf import settings
 from django.core.management import call_command
 
 settings.configure(
-    Debug=True,
+    DEBUG=True,
     INSTALLED_APPS = [
         'django.contrib.contenttypes',
         'django.contrib.auth',
