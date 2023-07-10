@@ -8,7 +8,6 @@ from .models import EmailUser
 class EmailUserAdmin(UserAdmin):
     add_form = EmailUserCreationForm
     form = EmailUserChangeForm
-    model = EmailUser
     list_display = ('email', 'name', 'is_staff', 'is_active')
     list_filter = ('email', 'name', 'is_staff', 'is_active')
     fieldsets = (
