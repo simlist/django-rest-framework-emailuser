@@ -1,8 +1,8 @@
+from django.contrib.auth import get_user_model
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
 from .forms import EmailUserCreationForm, EmailUserChangeForm
-from .models import EmailUser
 
 
 class EmailUserAdmin(UserAdmin):
@@ -31,4 +31,4 @@ class EmailUserAdmin(UserAdmin):
     ordering = ('name',)
 
 
-admin.site.register(EmailUser, EmailUserAdmin)
+admin.site.register(get_user_model(), EmailUserAdmin)

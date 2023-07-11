@@ -30,4 +30,5 @@ class AbstractEmailUser(AbstractBaseUser, PermissionsMixin):
 
 
 class EmailUser(AbstractEmailUser):
-    pass
+    class Meta(AbstractEmailUser.Meta):
+        swappable = 'AUTH_USER_MODEL'

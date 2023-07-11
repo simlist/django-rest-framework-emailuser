@@ -1,7 +1,7 @@
+from django.contrib.auth import get_user_model
 from rest_framework.permissions import AllowAny, IsAuthenticatedOrReadOnly
 from rest_framework import generics
 from . import serializers
-from .models import EmailUser
 from .permissions import IsSelfOrReadOnly
 
 
@@ -13,4 +13,4 @@ class RegistrationView(generics.CreateAPIView):
 class RetrieveUpdateUserView(generics.RetrieveUpdateAPIView):
     permission_classes = [IsAuthenticatedOrReadOnly, IsSelfOrReadOnly]
     serializer_class = serializers.EmailUserSerializer
-    queryset = EmailUser.objects.all()
+    queryset = get_user_model().objects.all()
